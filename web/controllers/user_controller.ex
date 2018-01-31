@@ -30,4 +30,16 @@ defmodule ApiUser.UserController do
 			{:error, _changeset} -> json conn |> put_status(:bad_request), %{error: ["unable to create user"]}
 		end	
 	end
+
+	def update(conn, %{"id" => id} = params) do
+		user = Repo.get(ApiUser.User, id)
+		if user do
+			changeset = ApiUser.User.changeset(user, params)
+			case Repo.update(changeset) do
+				{:ok, user} -> json conn |> put_status(:ok), user
+				{:error, result} -> json conn |> put_status(:bad_request), %{errors: ["invalid user"]}
+			end
+		end
+	end	
+
 end
