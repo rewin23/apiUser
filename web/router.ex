@@ -26,5 +26,6 @@ defmodule ApiUser.Router do
      get "/users", UserController, :index
      get "/users/:id", UserController, :show
      post "/users", UserController, :create
+     put "/users/:id", UserController, :update
   end
 end
