@@ -5,4 +5,6 @@ defmodule ApiUser.Users do
 	alias ApiUser.Users.User
 
 	def list_users, do: Repo.all(ApiUser.User)
+
+	def get_users!(id), do: Repo.get!(User, id)
 end
