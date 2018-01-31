@@ -17,11 +17,12 @@ defmodule ApiUser.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    get "/users", UserController, :index
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", ApiUser do
-  #   pipe_through :api
-  # end
+  scope "/api/v1", ApiUser do
+     pipe_through :api
+
+     get "/users", UserController, :index
+  end
 end
