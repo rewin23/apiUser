@@ -16,9 +16,8 @@ defmodule ApiUser.User do
 
 	@doc false
 
-	def changeset(%User{} = user, attrs) do
-		user
-		|> cast(attrs, [:email, :password, :alias])
-		|> validate_required([:email, :password, :alias])
-	end
+	def changeset(model, params \\ :empty) do
+    model
+    |> cast(params, @required_fields, @optional_fields)
+  end
 end
