@@ -7,6 +7,6 @@ defmodule ApiUser.UserView do
 	end
 
 	def render("show.json", %{user: user}) do
-		%{data: render:one(user, UserView, "user.json")}
+		%{data: render_one(user, UserView, "user.json")}
 	end
 end
