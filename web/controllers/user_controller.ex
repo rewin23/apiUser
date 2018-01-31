@@ -11,6 +11,13 @@ defmodule ApiUser.UserController do
 
 	def show(conn, %{"id" => id}) do
 		user = Users.get_user(id)
-		render(conn, "show.json", user: user)
+
+		if user do
+			render(conn, "show.json", user: user)
+		else
+			conn·
+			|> put_status(:not_found)
+			|> render("show.json", user: user)
+		end
 	end
 end
