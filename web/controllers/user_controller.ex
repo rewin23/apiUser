@@ -15,7 +15,7 @@ defmodule ApiUser.UserController do
 		if user do
 			render(conn, "show.json", user: user)
 		else
-			conn·
+			conn
 			|> put_status(:not_found)
 			|> render("show.json", user: user)
 		end
