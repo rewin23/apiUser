@@ -2,7 +2,7 @@ defmodule ApiUser.UserView do
 	use ApiUser.Web, :view
 	alias ApiUser.UserView
 
-	def render("index.json", %{user: user}) do
+	def render("index.json", %{users: users}) do
 		%{data: render_many(users, UserView, "user.json")}
 	end
 
